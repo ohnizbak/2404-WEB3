@@ -268,7 +268,8 @@
 
 
         const scrollInter = document.getElementsByClassName('scroll-inter');
-        const incline = document.querySelector('#start-together > .incline')
+        const incline = document.querySelector('#start-together > .incline');
+        const CountUpTarget = document.querySelector('.point-blue.count-up');
 
         window.addEventListener('scroll',()=>{
             for(let i = 0 ; i < scrollInter.length ; i++){
@@ -280,12 +281,15 @@
             if(incline.getBoundingClientRect().top<window.innerHeight){
                     incline.classList.add('active');
             }
+            
+            if(CountUpTarget.getBoundingClientRect().top<window.innerHeight){ 
+                makeCountup(CountUpTarget, 8286684)
+            }    
         })
 
         // 스크롤 이벤트가 이미 있어서 아래 if문만 넣어줘도 댐뮤
     
-
-
+        console.log(incline)
 
     </script>
 </body>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            height: 5000px;
+            /* background-color: gray; */
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000C0;
+            align-items: center;
+            justify-content: center;
+            padding: 0 32px;
+            box-sizing: border-box;
+
+        }
+
+        .modal.open {
+            display: flex;
+        }
+
+        .modal-container {
+            /* z-index: 999; */
+            position: relative;
+            width: 800px;
+            background-color: white;
+            padding: 32px;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .modal-container > h2 {
+            margin-bottom: 16px;
+        }
+
+        .modal-container > button {
+            position: absolute;
+            top: 32px;
+            right: 32px;
+        }
+    </style>
+</head>
+<body>
+    
+    <button class="open-button">모달 열기</button>
+    
+    <div class="modal">
+
+        <div class="modal-container">
+            <h2>Title</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa earum nihil maxime iure doloribus sit nisi. Hic doloremque eum, perferendis, vitae temporibus optio ab ad quidem, beatae nihil animi vero!</p>
+            <button>X</button>
+        </div>
+        
+    </div>
+
+    <script>
+        const openButton = document.querySelector('.open-button');
+        const modal = document.querySelector('.modal');
+        const closeButton = document.querySelector('.modal-container > button');
+
+        openButton.addEventListener('click', ()=>{
+            modal.classList.add('open');
+        })
+
+        closeButton.addEventListener('click', ()=>{
+            modal.classList.remove('open');
+        })
+        
+        window.addEventListener('click',(e)=>{
+            if(e.target.classList.contains('modal')){
+                modal.classList.remove('open');
+            }
+        })
+    </script>
+</body>
+</html>
